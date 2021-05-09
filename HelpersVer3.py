@@ -175,6 +175,10 @@ def runRow(lis, const, file):
     return row
 
 def getRider(row):
+    """Accepts a row, and extracts the rider data from that row.  Determining
+    if that data represents a needs to be performed before this function is
+    called""""
+
     r = []
     tooMany = 0
     for i in row:
