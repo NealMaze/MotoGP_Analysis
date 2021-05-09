@@ -71,7 +71,6 @@ def openPDF(rcFile):
     return whole, date
 
 def getDate(pages):
-    """Gets the date of the event and returns it to the openPDF() function"""
 
     words = pages[0].extract_words()
     date = []
@@ -87,6 +86,7 @@ def getDate(pages):
     return date
 
 def stripBoilerPlate(lis):
+    """Strips the boiler plate off the PDF list"""
 
     L = []
     R = []
