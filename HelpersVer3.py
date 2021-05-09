@@ -253,10 +253,14 @@ def getRider(row):
     return rider
 
 def rowAddConst(row, const):
+    """Adds the event data to the row"""
     for i in const:
         row.insert(0, i)
 
 def getMatrix(rows, yr):
+    """Takes the list and removes the rider rows, and appends all the lap
+    rows with the appropriate rider data"""
+
     matrix = []
     rider = ["none"]
 
