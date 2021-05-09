@@ -144,6 +144,9 @@ def getConst(yr, file, date):
     return const
 
 def runRow(lis, const, file):
+    """Takes either the first item or second item out of the list,
+    determines what kind of data the following represents, removes it
+    from the list and returns that data.  Only returns one row at a time"""
     row = []
 
     longLap = re.compile("^\d\d[']\d\d[.]\d\d\d$")
