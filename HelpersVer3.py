@@ -279,6 +279,9 @@ def getMatrix(rows, yr):
     return matrix
 
 def saveCSV(mat, file):
+    """accepts a matrix, and a file destination, and saves
+    the matrix as a csv file"""
+
     df = pd.DataFrame(mat)
     df.to_csv(file, index=False)
 
