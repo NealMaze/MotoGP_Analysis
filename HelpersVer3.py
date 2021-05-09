@@ -286,6 +286,8 @@ def saveCSV(mat, file):
     df.to_csv(file, index=False)
 
 def badSave(file):
+    """depricated???"""
+
     badFiles = []
     dest = "C:/Users/LuciusFish/Desktop/csv/mistakenFiles.csv"
 
@@ -301,6 +303,7 @@ def badSave(file):
     saveCSV(badFiles, dest)
 
 def goodSave(file):
+    """depricated???"""
     finFiles = []
     dest = "C:/Users/LuciusFish/Desktop/csv/finishedFiles.csv"
 
