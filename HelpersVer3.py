@@ -133,6 +133,7 @@ def stripBoilerPlate(lis):
     return L
 
 def getConst(yr, file, date):
+    """Gets the event data"""
     r = file.replace(f"{yr}-", "")
     o = r.replace(".csv", "")
     u = o.split("-")
