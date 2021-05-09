@@ -37,8 +37,8 @@ def getRacAnFiles(yr, dir, sesType):
     return rcFiles
 
 def parsePDF(rcFile, yr, h, file):
-    """Turns the PDF into  a list of rows, each either a lap, or rider"""
-    
+    """Turns the PDF list into  a list of rows, each either a lap, or rider"""
+
     col, date = openPDF(rcFile)
     rows = []
     const = getConst(yr, h, date)
@@ -56,6 +56,8 @@ def parsePDF(rcFile, yr, h, file):
     return rows
 
 def openPDF(rcFile):
+    """Opens the PDF as a list and returns the list and the date of the event"""
+
     with plumb.open(rcFile) as pdf:
         whole = []
         pages = pdf.pages
@@ -69,6 +71,8 @@ def openPDF(rcFile):
     return whole, date
 
 def getDate(pages):
+    """Gets the date of the event and returns it to the openPDF() function"""
+
     words = pages[0].extract_words()
     date = []
 
@@ -83,6 +87,7 @@ def getDate(pages):
     return date
 
 def stripBoilerPlate(lis):
+
     L = []
     R = []
     x = 0
