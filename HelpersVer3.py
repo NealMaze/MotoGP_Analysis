@@ -319,6 +319,7 @@ def goodSave(file):
     saveCSV(finFiles, dest)
 
 def intSaveFiles():
+    """depricated???"""
     try:
         finFiles = []
         badFiles = []
@@ -351,6 +352,8 @@ def intSaveFiles():
     return finFiles
 
 def getGLap(lis):
+    """After determinging that the following data represents a good lap, it
+    takes the applicable dat off that list, formats it as a lap and returns it."""
     row = []
     longLap = re.compile("^\d\d[']\d\d[.]\d\d\d$")
     lapTime = re.compile("^\d[']\d\d[.]\d\d\d$")
@@ -386,6 +389,9 @@ def getGLap(lis):
     return row
 
 def getBLap(lis):
+    """After determing that the following data represents an unfinished lap, this
+    removes the applicable data, and formats it as a lap to return"""
+
     row = []
     longLap = re.compile("^\d\d[']\d\d[.]\d\d\d$")
     lapTime = re.compile("^\d[']\d\d[.]\d\d\d$")
@@ -413,6 +419,9 @@ def getBLap(lis):
     return row
 
 def getStats(lis):
+    """Double checks that the following data represents a rider and there
+    hasn't been a mix-up.  Spaghetti code, I know."""
+
     low = []
     longLap = re.compile("^\d\d[']\d\d[.]\d\d\d$")
     lapTime = re.compile("^\d[']\d\d[.]\d\d\d$")
