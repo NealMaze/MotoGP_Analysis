@@ -30,13 +30,15 @@ def mkGoalDirs():
 
 def getRacAnFiles(yr, dir, sesType):
     """Searches the directory for appropriate files and creates a list to cycle through"""
-    
+
     filter_files = fnmatch.filter(listdir(dir), f"{yr}*{sesType}*nalysis.pdf")
     rcFiles = [f"{dir}/{file}" for file in filter_files]
 
     return rcFiles
 
 def parsePDF(rcFile, yr, h, file):
+    """Turns the PDF into  a list of rows, each either a lap, or rider"""
+    
     col, date = openPDF(rcFile)
     rows = []
     const = getConst(yr, h, date)
