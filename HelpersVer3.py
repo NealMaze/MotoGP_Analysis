@@ -10,6 +10,8 @@ from time import sleep
 from winsound import Beep
 
 def mkGoalDirs():
+    """Verifies that the appropriate directories exist on the computer"""
+
     try:
         types = ["RAC", "RAC2", "Q2", "Q1", "WUP", "FP1", "FP2", "FP3", "FP4"]
         desk = ("C:/Users/LuciusFish/Desktop/")
