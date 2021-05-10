@@ -17,3 +17,10 @@ for i in finFiles:
 for sesType in Types:
     dir = baseDir + sesType
     with open(dir) as f:
+        try:
+
+
+
+
+
+
