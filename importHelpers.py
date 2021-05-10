@@ -1,18 +1,7 @@
 # imports
 import csv
-
-def getFinFiles():
-    finFiles = []
-    with open("C:/Users/LuciusFish/Desktop/csv/finFiles.txt", "r") as f:
-        contents = f.readlines()
-        for i in contents:
-            finFiles.append(i)
-
-    for i in finFiles:
-        if i == 0 or i == []:
-            del i
-
-    return finFiles
+import re
+from genGetters import *
 
 def testReader(csvReader):
     prtFlg = True
@@ -20,8 +9,8 @@ def testReader(csvReader):
         prtLis = []
         prtlis.append(prtlis.append(tstYr(r[0]))
         prtlis.append(tstDate(r[1]))
-        prtlis.append(tstRound(r[2]))
-        prtlis.append(tstLeague(r[3]))
+        prtlis.append(tstRnd(r[2]))
+        prtlis.append(tstLge(r[3]))
         prtlis.append(tstBikNum(r[6]))
         prtlis.append(tstNat(r[10]))
         prtlis.append(tstTyre(r[14]))
@@ -35,19 +24,50 @@ def testReader(csvReader):
             break
     return prtFlg
 
-def tstYr(r[0]):
+def tstYr(yr):
+    yrFormat = re.compile("^(199\d|20[0-5]\d)$")
+    if re.match(yrFormat, yr) tst = True
+    else tst = False
 
-def tstDate(r[0]):
+    return tst
 
-def tstRound(r[0]):
+def tstDate(date):
+    dateFormat = re.compile("^(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|June?|July?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)[" "][0-3]\d$")
+    if re.match(dateFormat, date) tst = True
+    else tst = False
 
-def tstLeague(r[0]):
+    return tst
 
-def tstBikNum(r[0]):
+def tstRnd(rnd):
+    dateFormat = re.compile("^[Round_]+\d{1,2}$")
+    if re.match(dateFormat, rnd) tst = True
+    else tst = False
 
-def tstNat(r[0]):
+    return tst
+
+def tstLge(lge):
+    lges = getLeagues()
+    if lge in lges tst = True
+    else tst = False
+
+    return tst
+
+def tstBikNum(bkNum):
+    bkNumFormat = re.compile("^\d{1,2,3}$")
+    if re.match(bkNumFormat, bkNum) tst = True
+    else tst = False
+
+    return tst
+
+def tstNat(nat):
+    nats = getNations()
+    if nat in nats tst = True
+    else tst = False
+
+    return tst
 
 def tstTyre(r[0]):
+    
 
 def tstSeqLp(r[0]):
 
