@@ -1,6 +1,6 @@
 # imports
 from importHelpers import *
-from genGetters import*
+from genGetters import *
 
 dir = ("C:/Users/LuciusFish/Desktop/motoFiles/")
 types = ["RAC", "RAC2", "Q2", "Q1", "WUP", "FP1", "FP2", "FP3", "FP4", "Test"]

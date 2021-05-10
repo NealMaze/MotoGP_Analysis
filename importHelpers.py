@@ -4,25 +4,36 @@ import re
 from genGetters import *
 
 def testReader(csvReader):
-    prtFlg = True
+    portFlg = True
+    prevLap = 1
     for r in csvReader:
-        prtLis = []
-        prtlis.append(prtlis.append(tstYr(r[0]))
-        prtlis.append(tstDate(r[1]))
-        prtlis.append(tstRnd(r[2]))
-        prtlis.append(tstLge(r[3]))
-        prtlis.append(tstBikNum(r[6]))
-        prtlis.append(tstNat(r[10]))
-        prtlis.append(tstTyre(r[14]))
-        prtlis.append(tstTyre(r[15]))
-        prtlis.append(tstSeqLp(r[18]))
+        portLis = []
+
+        portlis.append(prtlis.append(tstYr(r[0]))
+        portlis.append(tstDate(r[1]))
+        portlis.append(tstRnd(r[2]))
+        portlis.append(tstLge(r[3]))
+        portlis.append(tstBikNum(r[6]))
+        portlis.append(tstNat(r[10]))
+        # portlis.append(tstTyre(r[14]))
+        # portlis.append(tstTyre(r[15]))
+        flg, lap = tstSeqLp(prevLap, r[18])
+        portlis.append(flg)
+
         for i in r[19:28]:
-            prtlis.append(tstTme(i))
-        prtlis.append(tstAvgSpd(r[28]))
-        if False in prtLis:
-            prtFlg = False
+            portlis.append(tstTme(i))
+        portlis.append(tstAvgSpd(r[28]))
+
+        prevLap = lap
+        del lap
+
+        if False in portLis:
+            portFlg = False
             break
-    return prtFlg
+
+
+
+    return portFlg
 
 def tstYr(yr):
     yrFormat = re.compile("^(199\d|20[0-5]\d)$")
@@ -66,11 +77,23 @@ def tstNat(nat):
 
     return tst
 
-def tstTyre(r[0]):
-    
+# def tstTyre(tyre):
+#     nats = getNations()
+#     if nat in nats tst = True
+#     else tst = False
+#
+#     return tst
 
-def tstSeqLp(r[0]):
+def tstSeqLp(prevLap, rNum):
+    if rNum == prevLap + 1 or \
+        rNum == "dnf" or \
+        rNum == 1:
+        tst = True
+    else tst = False
 
-def tstTme(r[0]):
+    return tst, rNum
+
+def tstTme(tme):
+
 
 def tstAvgSpd(r[0]):
