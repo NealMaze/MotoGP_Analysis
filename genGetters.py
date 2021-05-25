@@ -1,6 +1,12 @@
+# imports
+import fnmatch
+from os import listdir, mkdir
+
+saveDir = "C:/Users/LuciusFish/Desktop/motoFiles/sveFiles/"
+
 def getImportFinFiles():
     finFiles = []
-    with open("C:/Users/LuciusFish/Desktop/MotoFiles/importFinFiles.txt", "r") as f:
+    with open(f"{saveDir}importFinFiles.txt", "r") as f:
         contents = f.readlines()
         for i in contents:
             finFiles.append(i)
@@ -13,7 +19,7 @@ def getImportFinFiles():
 
 def getCsvFinFiles():
     finFiles = []
-    with open("C:/Users/LuciusFish/Desktop/MotoFiles/csvFinFiles.txt", "r") as f:
+    with open(f"{saveDir}csvFinFiles.txt", "r") as f:
         contents = f.readlines()
         for i in contents:
             finFiles.append(i)
@@ -24,54 +30,28 @@ def getCsvFinFiles():
 
     return finFiles
 
-def getLeagues():
-    lges = []
-    with open("C:/Users/LuciusFish/Desktop/MotoFiles/leagues.txt", "r") as f:
+def getListFile(type):
+    xs = []
+    k = []
+    with open(f"{saveDir}{type}.txt", "r") as f:
         contents = f.readlines()
         for i in contents:
-            lges.append(i)
+            xs.append(i.strip().split("\t"))
 
-    for i in lges:
+    for i in xs:
         if i == 0 or i == []:
             del i
 
-    return lges
+    for i in xs:
+        for j in i:
+            k.append(j)
 
-def getYrs():
-    yrs = []
-    with open("C:/Users/LuciusFish/Desktop/MotoFiles/years.txt", "r") as f:
-        contents = f.readlines()
-        for i in contents:
-            yrs.append(i)
+    return k
 
-    for i in yrs:
-        if i == 0 or i == []:
-            del i
+def getMatchFiles(dir, string):
+    """Searches the directory for appropriate files and creates a list to cycle through"""
 
-    return yrs
+    filter_files = fnmatch.filter(listdir(dir), string)
+    appFiles = [f"{dir}/{file}" for file in filter_files]
 
-def getNations():
-    nations = []
-    with open("C:/Users/LuciusFish/Desktop/MotoFiles/nations.txt", "r") as f:
-        contents = f.readlines()
-        for i in contents:
-            nations.append(i)
-
-    for i in nations:
-        if i == 0 or i == []:
-            del i
-
-    return nations
-
-def getManufacturers():
-    manufacturers = []
-    with open("C:/Users/LuciusFish/Desktop/MotoFiles/years.txt", "r") as f:
-        contents = f.readlines()
-        for i in contents:
-            manufacturers.append(i)
-
-    for i in manufacturers:
-        if i == 0 or i == []:
-            del i
-
-    return manufacturers
+    return appFiles
